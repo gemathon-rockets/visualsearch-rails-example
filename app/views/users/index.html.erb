@@ -1,9 +1,10 @@
-<h2> VisualSearch-Rails Gem Demo </h2>
+<div id="heading"> <h2> VisualSearch-Rails Gem Demo </h2> </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<div class="visual_search"></div>
+<body><div class="visual_search"></div> </body>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
+
     var visualSearch = VS.init({
       container : $('.visual_search'),
       query     : '',
@@ -19,6 +20,11 @@
     ]);
   },
          valueMatches : function(facet, searchTerm, callback) {
+    bgColor=TextToColour(visualSearch.searchBox.value());
+    document.body.style.background = bgColor;
+    textColor= idealTextColor(bgColor);
+    document.getElementById('heading').style.color = textColor;
+
     switch (facet) {
     case 'account':
         callback([
@@ -51,5 +57,7 @@
       }
     }
     });
+
+
   });
 </script>
